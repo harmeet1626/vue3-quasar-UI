@@ -6,10 +6,17 @@
                     <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
                     <q-toolbar-title>Header</q-toolbar-title>
                     <div>
-                        <q-avatar>
-                            <img src="https://cdn.quasar.dev/img/avatar.png">
-                        </q-avatar>
-                        <q-btn-dropdown>
+                        <div class="dropdown" style="float:left;">
+                            <button class="dropbtn"><q-avatar>
+                                    <img src="https://cdn.quasar.dev/img/avatar.png">
+                                </q-avatar></button>
+                            <div class="dropdown-content" style="left:0;">
+                                <a href="/#/login">Logout</a>
+                                <!-- <a href="#">Link 2</a>
+                                <a href="#">Link 3</a> -->
+                            </div>
+                        </div>
+                        <!-- <q-btn-dropdown>
                             <div class="row no-wrap q-pa-md">
                                 <div class="column">
                                     <div class="text-h6 q-mb-md">Settings</div>
@@ -26,7 +33,7 @@
                                         size="sm" v-close-popup />
                                 </div>
                             </div>
-                        </q-btn-dropdown>
+                        </q-btn-dropdown> -->
                     </div>
                 </q-toolbar>
             </q-header>
@@ -112,4 +119,48 @@ export default {
     }
 }
 </script>
-  
+<style>
+.dropbtn {
+    background-color: #26A69A;
+    ;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
