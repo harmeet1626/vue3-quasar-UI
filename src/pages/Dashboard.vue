@@ -1,12 +1,12 @@
-
 <template>
+    <h4>Dashboard</h4>
     <div style="display: flex;">
         <div style="width: 500px;">
-            <h4>Hourly sales :- </h4>
+            <h5>Hourly sales :- </h5>
             <Bar :options="chartOptions" :data="chartData1" />
         </div>
-        <div style="width: 500px;">
-            <h4>Daily sales :- </h4>
+        <div style="width: 500px; margin-left: 35px;">
+            <h5>Daily sales :- </h5>
             <Bar :options="chartOptions" :data="chartData2" />
         </div>
     </div>

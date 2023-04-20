@@ -22,7 +22,7 @@ export default {
   components: { navbar },
   watch: {
     $route(value) {
-      if (value.fullPath == '/Login') {
+      if (value.fullPath == '/login') {
         this.show = false
       } else {
         this.show = true

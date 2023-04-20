@@ -5,9 +5,29 @@
                 <q-toolbar>
                     <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
                     <q-toolbar-title>Header</q-toolbar-title>
-                    <q-avatar>
-                        <img src="https://cdn.quasar.dev/img/avatar.png">
-                    </q-avatar>
+                    <div>
+                        <q-avatar>
+                            <img src="https://cdn.quasar.dev/img/avatar.png">
+                        </q-avatar>
+                        <q-btn-dropdown>
+                            <div class="row no-wrap q-pa-md">
+                                <div class="column">
+                                    <div class="text-h6 q-mb-md">Settings</div>
+                                    <q-toggle v-model="mobileData" label="Use Mobile Data" />
+                                    <q-toggle v-model="bluetooth" label="Bluetooth" />
+                                </div>
+                                <q-separator vertical inset class="q-mx-lg" />
+                                <div class="column items-center">
+                                    <q-avatar size="72px">
+                                        <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                                    </q-avatar>
+                                    <div class="text-subtitle1 q-mt-md q-mb-xs">John Doe</div>
+                                    <q-btn color="primary" @click="() => this.$router.push('/login')" label="Logout" push
+                                        size="sm" v-close-popup />
+                                </div>
+                            </div>
+                        </q-btn-dropdown>
+                    </div>
                 </q-toolbar>
             </q-header>
             <q-drawer v-model="drawer" show-if-above :width="200" :breakpoint="500" bordered
@@ -23,26 +43,22 @@
                                 </q-item-section>
                                 <q-item-section>
                                     <span>{{ menuItem.label }}</span>
-
                                 </q-item-section>
                             </q-item>
                             <q-separator :key="'sep' + index" v-if="menuItem.separator" />
                         </template>
-
                     </q-list>
                 </q-scroll-area>
             </q-drawer>
-
-            <q-page-container>
+            <q-page-container style="margin-left: 20px;">
                 <router-view />
             </q-page-container>
         </q-layout>
     </div>
-</template>
-  
+</template>  
 <script>
 import { ref } from 'vue'
-
+import { useRouter } from 'vue-router'
 const menuList = [
     {
         icon: 'inbox',
@@ -56,12 +72,12 @@ const menuList = [
         label: 'Users',
         separator: true
     },
-    {
-        icon: 'delete',
-        path: '/Login',
-        label: 'Logout',
-        separator: false
-    },
+    // {
+    //     icon: 'delete',
+    //     path: '/Login',
+    //     label: 'Logout',
+    //     separator: false
+    // },
     // {
     //     icon: 'error',
     //     label: 'Spam',
@@ -84,12 +100,14 @@ const menuList = [
     //     separator: false
     // }
 ]
-
 export default {
     setup() {
+        const router = useRouter()
         return {
             drawer: ref(false),
-            menuList
+            menuList,
+            mobileData: ref(false),
+            bluetooth: ref(false)
         }
     }
 }
