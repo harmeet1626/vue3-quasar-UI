@@ -4,11 +4,13 @@
             <q-header elevated class="bg-secondary">
                 <q-toolbar>
                     <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
-                    <q-toolbar-title>Header</q-toolbar-title>
+                    <q-toolbar-title><q-avatar><img style="height: 30px;
+                width: 30px;" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg"></q-avatar>
+                        &nbsp;&nbsp;Admin</q-toolbar-title>
                     <div>
                         <div class="dropdown" style="float:left;">
                             <button class="dropbtn"><q-avatar>
-                                    <img src="https://cdn.quasar.dev/img/avatar.png">
+                                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
                                 </q-avatar></button>
                             <div class="dropdown-content" style="left:0;">
                                 <a href="/#/login">Logout</a>
@@ -44,7 +46,6 @@
                         <template v-for="(menuItem, index) in menuList" :key="index">
                             <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple
                                 @click="() => this.$router.push(menuItem.path)">
-
                                 <q-item-section avatar>
                                     <q-icon :name="menuItem.icon" />
                                 </q-item-section>
@@ -77,7 +78,7 @@ const menuList = [
         icon: 'send',
         path: '/Users',
         label: 'Users',
-        separator: true
+        separator: false
     },
     // {
     //     icon: 'delete',

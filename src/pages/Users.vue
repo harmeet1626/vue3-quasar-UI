@@ -1,7 +1,7 @@
 <template>
     <div class="q-pa-md">
         <h5>Welcome to users page</h5>
-        <div style="width: 300px;">
+        <div style="width: 300px; margin-left: 700px;">
             <q-input filled v-model="SearchInput" label="Search user here" reverse-fill-mask />
         </div>
         <div class="q-pa-md">
@@ -48,15 +48,10 @@ export default {
                 return data
             }
         })
-        function test(e) {
-            console.log(e)
-        }
         function onRowClick(evt, row) {
-            console.log('clicked on', row)
             route.push(`/userDetails/${row.id}`)
         }
         return {
-            test,
             onRowClick,
             separator: ref('cell'),
             columns,
