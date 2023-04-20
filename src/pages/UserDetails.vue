@@ -39,13 +39,13 @@ export default {
         const route = useRoute();
         const router = useRouter()
         const $q = useQuasar()
-        const Firstname = ref(jsonData.users[route.params.id-1].firstName)
-        const age = ref(jsonData.users[route.params.id-1].age)
-        const gender = ref(jsonData.users[route.params.id-1].gender)
-        const Phone = ref(jsonData.users[route.params.id-1].phone)
-        const birthdate = ref(jsonData.users[route.params.id-1].birthDate)
+        const Firstname = ref(jsonData.users[route.params.id - 1].firstName)
+        const age = ref(jsonData.users[route.params.id - 1].age)
+        const gender = ref(jsonData.users[route.params.id - 1].gender)
+        const Phone = ref(jsonData.users[route.params.id - 1].phone)
+        const birthdate = ref(jsonData.users[route.params.id - 1].birthDate)
         const accept = ref(false)
-        function update(){
+        function update() {
             router.push('/')
         }
 
@@ -78,9 +78,13 @@ export default {
             },
 
             onReset() {
-                name.value = null
-                age.value = null
                 accept.value = false
+                Firstname.value = null
+                age.value = null
+                accept.value = null
+                gender.value = null
+                Phone.value = null
+                birthdate.value = null
             }
         }
     }
