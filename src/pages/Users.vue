@@ -1,8 +1,8 @@
 <template>
     <div class="q-pa-md">
-        <h5>Welcome to users page</h5>
+        <h5 style="padding-left: 17px;">Users page</h5>
         <div style="width: 300px; margin-left: 700px;">
-            <q-input filled v-model="SearchInput" label="Search user here" reverse-fill-mask />
+            <q-input v-model="SearchInput" label="Search user here" r />
         </div>
         <div class="q-pa-md">
             <q-table @row-click="onRowClick" flat bordered :rows="rows" :columns="columns" row-key="name"

@@ -34,7 +34,18 @@ export default {
     const password = ref('')
     function login() {
       if (this.name == 'admin' && this.password == 'admin') {
+        $q.notify({
+          type: 'positive',
+          message: 'Welcome!'
+        })
         route.push('/')
+      } else {
+        $q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'warning',
+          message: 'Enter admin '
+        })
       }
     }
     return {

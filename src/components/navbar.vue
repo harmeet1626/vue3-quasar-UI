@@ -4,18 +4,19 @@
             <q-header elevated class="bg-secondary">
                 <q-toolbar>
                     <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
-                    <q-toolbar-title><q-avatar><img style="height: 30px;
-                width: 30px;" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg"></q-avatar>
-                        &nbsp;&nbsp;Admin</q-toolbar-title>
+                    <q-toolbar-title>
+                        <q-avatar><img style="height: 30px;
+                            width: 30px;" src="https://cdn.quasar.dev/logo-v2/svg/logo.svg">
+                            </q-avatar>
+                        &nbsp;&nbsp;Quasar
+                    </q-toolbar-title>
                     <div>
-                        <div class="dropdown" style="float:left;">
-                            <button class="dropbtn"><q-avatar>
-                                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-                                </q-avatar></button>
-                            <div class="dropdown-content" style="left:0;">
+                        <div class="dropdown" style="float:left; ">
+                            <q-avatar ><img style="height: 30px;
+                            width: 30px;" src="https://cdn.quasar.dev/img/boy-avatar.png">
+                            </q-avatar>
+                            <div class="dropdown-content" >
                                 <a href="/#/login">Logout</a>
-                                <!-- <a href="#">Link 2</a>
-                                <a href="#">Link 3</a> -->
                             </div>
                         </div>
                         <!-- <q-btn-dropdown>
@@ -44,7 +45,7 @@
                 <q-scroll-area class="fit">
                     <q-list>
                         <template v-for="(menuItem, index) in menuList" :key="index">
-                            <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple
+                            <q-item class="sideNav" clickable :active="menuItem.label === 'Outbox'" v-ripple
                                 @click="() => this.$router.push(menuItem.path)">
                                 <q-item-section avatar>
                                     <q-icon :name="menuItem.icon" />
@@ -80,27 +81,30 @@ const menuList = [
         label: 'Users',
         separator: false
     },
+    {
+        icon: 'send',
+        path: '/userProfile',
+        label: 'User Profile',
+        separator: false
+    },
     // {
-    //     icon: 'delete',
-    //     path: '/Login',
-    //     label: 'Logout',
+    //     icon: 'send',
+    //     label: 'Maps',
+    //     path: '/maps',
     //     separator: false
     // },
-    // {
-    //     icon: 'error',
-    //     label: 'Spam',
-    //     separator: true
-    // },
-    // {
-    //     icon: 'settings',
-    //     label: 'Settings',
-    //     separator: false
-    // },
-    // {
-    //     icon: 'feedback',
-    //     label: 'Send Feedback',
-    //     separator: false
-    // },
+    {
+        icon: 'tab',
+        label: 'Tables',
+        path: '/tables',
+        separator: false
+    },
+    {
+        icon: 'settings',
+        label: 'Charts',
+        path: '/charts',
+        separator: false
+    },
     // {
     //     icon: 'help',
     //     iconColor: 'primary',
@@ -164,4 +168,8 @@ export default {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+/* .sideNav >>>.q-icon{
+    margin-left: 20px;
+} */
 </style>

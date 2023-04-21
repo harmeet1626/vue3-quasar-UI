@@ -22,6 +22,16 @@ const routes = [
     path: '/userDetails/:id',
     component: () => import('../pages/UserDetails.vue')
   },
+  {
+    path: '/userProfile',
+    component: () => import('../pages/UserProfile')
+  }, {
+    path: '/tables',
+    component: () => import('../pages/Tables.vue')
+  }, {
+    path: '/charts',
+    component: () => import('../pages/Charts.vue')
+  }
 
 ]
 
